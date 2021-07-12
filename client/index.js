@@ -224,7 +224,9 @@ const connectFunction = (roomId, { status }) => {
   socket.on('roomId', (data) => {
     roomIdServer = data.roomId;
     notifyMe(
-      `${data.nickname} Joined Room. Connected People ${data.connectedUsers} `,
+      `${
+        data.nickname || localStorage.getItem('nickname')
+      } Joined Room. Connected People ${data.connectedUsers} `,
       joinedSound,
     );
 
